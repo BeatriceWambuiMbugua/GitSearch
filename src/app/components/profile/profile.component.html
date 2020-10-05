@@ -1,11 +1,16 @@
+<form action="">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search git users with username">
+    </div>
+</form>
 <div *ngIf="profile">
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="card">
+        <div class="card-header">
             {{profile.name}} <small>({{profile.login}})</small>
             <span *ngIf="profile.company">, Works at {{profile.company}}</span> in
             {{profile.location}}.
         </div>
-        <div class="panel-body">
+        <div class="card-body">
             <div class="row">
                 <div class="col-sm-3">
                     <img src="{{profile.avatar_url}}" class="rounded-circle img-responsive" alt="Profile Avatar"
@@ -34,7 +39,18 @@
                         <span class="badge badge-secondary"> {{profile.public_gists}} Public Gists</span>
                         <span class="badge badge-secondary"> {{profile.public_repos}} Public Repositories</span>
                     </p>
-                    <p><a href="" class="btn btn-success btn-small">View Github Profile</a></p>
+                    <p><a href="{{profile.html_url}}" class="btn btn-success btn-small">View Github Profile</a></p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Repositories</h3>
+                        </div>
+                        <div class="card-body" *ngFor="let repo of repos">
+                            <p class="clearfix">
+                                {{repo.name}} <a href="{{repo.html_url}}" target= "_blank" class="btn btn-warning btn-sm float-right" >View this project on Github</a>
+                            </p>
+                            <p>{{repo.description}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
