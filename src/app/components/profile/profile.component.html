@@ -8,7 +8,33 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-3">
-                    <img src="{{profile.avatar_url}}" alt="">
+                    <img src="{{profile.avatar_url}}" class="rounded-circle img-responsive" alt="Profile Avatar"
+                        data-holder-rendered="true" style="width: 90%;">
+                </div>
+                <div class="col-sm-5">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngIf="profile.bio">
+                            {{profile.bio}}
+                        </li>
+                        <li class="list-group-item" *ngIf="profile.hireable">
+                            Available for hire
+                        </li>
+                        <li class="list-group-item" *ngIf="profile.blog"><a href="{{profile.blog}}"
+                                target="_blank">{{profile.blog}}</a>
+                        </li>
+                        <li class="list-group-item" *ngIf="profile.email"><a
+                                href="emailto:{{profile.email}}">{{profile.email}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <p>
+                        <span class="badge badge-secondary"> {{profile.followers}} Followers</span>
+                        <span class="badge badge-secondary"> Following {{profile.following}} </span>
+                        <span class="badge badge-secondary"> {{profile.public_gists}} Public Gists</span>
+                        <span class="badge badge-secondary"> {{profile.public_repos}} Public Repositories</span>
+                    </p>
+                    <p><a href="" class="btn btn-success btn-small">View Github Profile</a></p>
                 </div>
             </div>
         </div>
