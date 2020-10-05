@@ -2,8 +2,15 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             {{profile.name}} <small>({{profile.login}})</small>
-           <span *ngIf= "profile.company">, Works at {{profile.company}}</span> in
-           {{profile.location}}
+            <span *ngIf="profile.company">, Works at {{profile.company}}</span> in
+            {{profile.location}}.
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="{{profile.avatar_url}}" alt="">
+                </div>
+            </div>
         </div>
     </div>
 </div>
